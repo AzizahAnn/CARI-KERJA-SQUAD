@@ -2,45 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-// === TAMBAHKAN 'use' DI BAWAH INI ===
-use App\Models\Lowongan;
-use App\Models\Mahasiswa;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pendaftaran extends Model
 {
-    use HasFactory;
+    protected $table = 'pendaftaran';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'lowongan_id',
         'mahasiswa_id',
+        'jalur_cv',
+        'status',
         'tanggal_daftar',
-        'status_lamaran',
     ];
 
+    protected $casts = [
+        'tanggal_daftar' => 'datetime',
+    ];
 
-    // === TAMBAHKAN 2 FUNGSI RELASI DI BAWAH INI ===
-
-    /**
-     * Get the lowongan that the pendaftaran belongs to.
-     */
-    public function lowongan(): BelongsTo
+    public function lowongan()
     {
         return $this->belongsTo(Lowongan::class);
     }
 
-    /**
-     * Get the mahasiswa that the pendaftaran belongs to.
-     */
-    public function mahasiswa(): BelongsTo
+    public function mahasiswa()
     {
         return $this->belongsTo(Mahasiswa::class);
     }

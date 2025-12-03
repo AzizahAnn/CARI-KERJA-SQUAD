@@ -2,50 +2,46 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-// === TAMBAHKAN 'use' DI BAWAH INI ===
-use App\Models\Perusahaan;
-use App\Models\Pendaftaran;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
 class Lowongan extends Model
 {
-    use HasFactory;
+    protected $table = 'lowongan';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'perusahaan_id',
-        'nama_lowongan',
+        'posisi',
         'deskripsi',
-        'kriteria',
-        'jenis',
-        'deadline',
+        'persyaratan',
+        'lokasi',
+        'tipe',
+        'batas_akhir',
         'status',
     ];
 
+    protected $casts = [
+        'batas_akhir' => 'date',
+    ];
 
-    // === TAMBAHKAN 2 FUNGSI RELASI DI BAWAH INI ===
-
-    /**
-     * Get the perusahaan that owns the lowongan.
-     */
-    public function perusahaan(): BelongsTo
+    public function perusahaan()
     {
         return $this->belongsTo(Perusahaan::class);
     }
 
-    /**
-     * Get the pendaftarans for the lowongan.
-     */
-    public function pendaftarans(): HasMany
+    public function pendaftaran()
     {
         return $this->hasMany(Pendaftaran::class);
+    }
+
+    public function scopeAktif($query)
+    {
+        return $query->where('status', 'aktif')
+                     ->where('batas_akhir', '>=', Carbon::today());
+    }
+
+    public function masihTerbuka()
+    {
+        return $this->status === 'aktif' && $this->batas_akhir >= Carbon::today();
     }
 }
