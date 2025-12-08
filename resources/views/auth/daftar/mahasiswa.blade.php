@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Mahasiswa - Own Your Career</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
+        /* Palet Warna: #192338 (Oxford Blue), #31487A (YinMn Blue), #8FB3E2 (Jordy Blue), #D9E1F1 (Lavender) */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Gradien biru gelap baru */
+            background: linear-gradient(135deg, #31487A 0%, #192338 100%);
             min-height: 100vh;
             padding: 40px 20px;
         }
         .register-container {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px; /* Sedikit dikecilkan agar lebih modern */
             padding: 40px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             max-width: 600px;
@@ -29,26 +33,27 @@
             margin-bottom: 2rem;
         }
         .register-header .icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem; /* Ukuran ikon disesuaikan */
+            margin-bottom: 0.5rem;
+            color: #31487A; /* Warna ikon YinMn Blue */
         }
         .register-header h2 {
-            color: #333;
+            color: #192338; /* Oxford Blue */
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
         .register-header p {
-            color: #666;
+            color: #606C7B; /* Warna abu-abu yang lebih tenang */
         }
         .alert {
             padding: 12px 20px;
-            border-radius: 10px;
+            border-radius: 8px; /* Disesuaikan */
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
         .alert-error {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #fecaca; /* Warna error merah baru */
+            color: #b91c1c;
             border-left: 4px solid #ef4444;
         }
         .form-group {
@@ -56,7 +61,7 @@
         }
         label {
             display: block;
-            color: #333;
+            color: #192338; /* Warna label lebih gelap */
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -71,7 +76,7 @@
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #e5e7eb;
-            border-radius: 10px;
+            border-radius: 8px; /* Disesuaikan */
             font-size: 1rem;
             font-family: inherit;
             transition: all 0.3s ease;
@@ -83,8 +88,8 @@
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+            border-color: #8FB3E2; /* Jordy Blue untuk fokus */
+            box-shadow: 0 0 0 3px rgba(143, 179, 226, 0.4); /* Shadow biru transparan */
         }
         .error-text {
             color: #ef4444;
@@ -94,10 +99,11 @@
         .btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            /* Gradien tombol menggunakan warna palet biru */
+            background: linear-gradient(135deg, #8FB3E2 0%, #31487A 100%);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px; /* Disesuaikan */
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
@@ -106,15 +112,17 @@
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 5px 20px rgba(49, 72, 122, 0.3); /* Shadow dari YinMn Blue */
+            opacity: 0.9;
         }
         .links {
             text-align: center;
             margin-top: 1.5rem;
         }
-        .links a {
-            color: #f59e0b;
+        .links p, .links a {
+            color: #31487A; /* Warna link YinMn Blue */
             text-decoration: none;
+            font-weight: 500;
         }
         .links a:hover {
             text-decoration: underline;
@@ -134,7 +142,7 @@
 <body>
     <div class="register-container">
         <div class="register-header">
-            <div class="icon">🎓</div>
+            <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
             <h2>Daftar Mahasiswa</h2>
             <p>Mulai perjalanan kariermu</p>
         </div>
@@ -218,7 +226,7 @@
 
         <div class="links">
             <p>Sudah punya akun? <a href="{{ route('mahasiswa.masuk') }}">Masuk di sini</a></p>
-            <a href="{{ route('pilih.peran') }}">← Kembali ke Pilih Peran</a>
+            <a href="{{ route('pilih.peran') }}"><i class="fa-solid fa-arrow-left"></i> Kembali ke Pilih Peran</a>
         </div>
     </div>
 </body>

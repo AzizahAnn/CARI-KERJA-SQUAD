@@ -4,43 +4,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Lamaran - Own Your Career</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f3f4f6; }
-        .navbar { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .navbar h1 { font-size: 1.5rem; }
-        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 20px; }
-        .alert-success { background: #d1fae5; color: #065f46; padding: 15px 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #10b981; }
-        .card { background: white; border-radius: 15px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .card-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
-        .card-title { font-size: 1.5rem; color: #333; margin-bottom: 0.5rem; }
-        .company-name { color: #666; font-size: 1rem; }
-        .badge { padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-        .badge-menunggu { background: #fef3c7; color: #92400e; }
-        .badge-diterima { background: #d1fae5; color: #065f46; }
-        .badge-ditolak { background: #fee2e2; color: #991b1b; }
-        .card-info { color: #666; margin-bottom: 0.5rem; }
-        .btn-detail { display: inline-block; margin-top: 1rem; padding: 10px 25px; background: #f59e0b; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .empty-state { text-align: center; padding: 3rem; color: #666; background: white; border-radius: 15px; }
+        /* Palet Warna: #192338 (Oxford Blue), #31487A (YinMn Blue), #8FB3E2 (Jordy Blue), #D9E1F1 (Lavender) */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body { 
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #D9E1F1; /* Lavender Light */
+        }
+        
+        /* Navigasi */
+        .navbar { 
+            /* Gradien biru gelap konsisten */
+            background: linear-gradient(135deg, #31487A 0%, #192338 100%); 
+            color: white; 
+            padding: 1.2rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .navbar h1 { 
+            font-size: 1.5rem; 
+            font-weight: 600;
+        }
+        .navbar a { 
+            color: #D9E1F1; 
+            text-decoration: none; 
+            margin-left: 20px; 
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 2rem auto; 
+            padding: 0 20px; 
+        }
+        
+        /* Alert/Success Message */
+        .alert-success { 
+            background: #d1fae5; 
+            color: #065f46; 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            margin-bottom: 20px; 
+            border-left: 4px solid #10b981; 
+            font-weight: 500;
+        }
+        
+        /* Card Lamaran */
+        .card { 
+            background: white; 
+            border-radius: 15px; 
+            padding: 1.5rem; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            margin-bottom: 20px; 
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+        }
+
+        .card-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: start; 
+            margin-bottom: 1rem; 
+        }
+        .card-title { 
+            font-size: 1.5rem; 
+            color: #192338; /* Oxford Blue */
+            margin-bottom: 0.3rem; 
+            font-weight: 700;
+        }
+        .company-name { 
+            color: #31487A; /* YinMn Blue */
+            font-size: 1rem; 
+            font-weight: 500;
+        }
+        
+        /* Badge Status */
+        .badge { 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: bold; 
+        }
+        .badge-menunggu { 
+            background: #D9E1F1; 
+            color: #31487A; 
+        }
+        .badge-diterima { 
+            background: #d1fae5; 
+            color: #065f46; 
+        }
+        .badge-ditolak { 
+            background: #fecaca; 
+            color: #b91c1c; 
+        }
+        
+        .card-info { 
+            color: #606C7B; 
+            margin-bottom: 0.5rem; 
+            font-size: 0.95rem;
+        }
+        .card-info i {
+            margin-right: 5px;
+            color: #8FB3E2; /* Jordy Blue */
+        }
+
+        /* Tombol Detail */
+        .btn-detail { 
+            display: inline-block; 
+            margin-top: 1rem; 
+            padding: 10px 25px; 
+            /* Gradien tombol konsisten */
+            background: linear-gradient(135deg, #8FB3E2 0%, #31487A 100%); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-detail:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(49, 72, 122, 0.3);
+        }
+
+        /* Empty State */
+        .empty-state { 
+            text-align: center; 
+            padding: 3rem; 
+            color: #606C7B; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .empty-state h3 {
+            color: #192338;
+            margin-bottom: 1rem;
+        }
+        .empty-state a {
+            color: #31487A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .empty-state a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <h1>📋 Riwayat Lamaran</h1>
+        <h1><i class="fa-solid fa-list-check"></i> Riwayat Lamaran</h1>
         <div>
-            <a href="{{ route('mahasiswa.dashboard') }}">Dashboard</a>
-            <a href="{{ route('mahasiswa.lowongan.index') }}">Cari Lowongan</a>
-            <a href="{{ route('mahasiswa.lamaran.index') }}">Lamaran Saya</a>
+            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+            <a href="{{ route('mahasiswa.lowongan.index') }}"><i class="fa-solid fa-magnifying-glass"></i> Cari Lowongan</a>
+            <a href="{{ route('mahasiswa.lamaran.index') }}"><i class="fa-solid fa-file-contract"></i> Lamaran Saya</a>
         </div>
     </nav>
 
     <div class="container">
         @if(session('success'))
-        <div class="alert-success">{{ session('success') }}</div>
+        <div class="alert-success"><i class="fa-solid fa-circle-check"></i> {{ session('success') }}</div>
         @endif
 
-        <h2 style="margin-bottom: 1.5rem;">Lamaran Saya ({{ $lamaran->count() }})</h2>
+        <h2 style="margin-bottom: 1.5rem; color: #192338;">Lamaran Saya ({{ $lamaran->count() }})</h2>
 
         @if($lamaran->count() > 0)
             @foreach($lamaran as $item)
@@ -48,27 +187,27 @@
                 <div class="card-header">
                     <div>
                         <h3 class="card-title">{{ $item->lowongan->posisi }}</h3>
-                        <p class="company-name">🏢 {{ $item->lowongan->perusahaan->nama_perusahaan }}</p>
+                        <p class="company-name"><i class="fa-solid fa-building"></i> {{ $item->lowongan->perusahaan->nama_perusahaan }}</p>
                     </div>
                     <span class="badge badge-{{ $item->status }}">
-                        @if($item->status == 'menunggu') ⏳ Menunggu
-                        @elseif($item->status == 'diterima') ✅ Diterima
-                        @else ❌ Ditolak
+                        @if($item->status == 'menunggu') <i class="fa-solid fa-clock"></i> Menunggu
+                        @elseif($item->status == 'diterima') <i class="fa-solid fa-check-circle"></i> Diterima
+                        @else <i class="fa-solid fa-times-circle"></i> Ditolak
                         @endif
                     </span>
                 </div>
                 
-                <p class="card-info">📍 {{ $item->lowongan->lokasi }}</p>
-                <p class="card-info">📅 Dilamar: {{ $item->tanggal_daftar->format('d M Y H:i') }}</p>
-                <p class="card-info">📄 CV: {{ basename($item->jalur_cv) }}</p>
+                <p class="card-info"><i class="fa-solid fa-map-marker-alt"></i> {{ $item->lowongan->lokasi }}</p>
+                <p class="card-info"><i class="fa-solid fa-calendar-alt"></i> Dilamar: {{ $item->tanggal_daftar->format('d M Y H:i') }}</p>
+                <p class="card-info"><i class="fa-solid fa-file-pdf"></i> CV: {{ basename($item->jalur_cv) }}</p>
                 
-                <a href="{{ route('mahasiswa.lamaran.detail', $item->id) }}" class="btn-detail">Lihat Detail</a>
+                <a href="{{ route('mahasiswa.lamaran.detail', $item->id) }}" class="btn-detail"><i class="fa-solid fa-eye"></i> Lihat Detail</a>
             </div>
             @endforeach
         @else
             <div class="empty-state">
-                <h3>Belum ada lamaran</h3>
-                <p><a href="{{ route('mahasiswa.lowongan.index') }}" style="color: #f59e0b;">Cari lowongan</a> dan kirim lamaran pertama Anda</p>
+                <h3><i class="fa-solid fa-box-open"></i> Belum ada lamaran</h3>
+                <p><a href="{{ route('mahasiswa.lowongan.index') }}">Cari lowongan</a> dan kirim lamaran pertama Anda</p>
             </div>
         @endif
     </div>
