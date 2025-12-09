@@ -8,10 +8,10 @@ use App\Models\Lowongan;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
-
-    // Proses daftar lowongan + upload CV
-    public function daftar(Request $request, $lowongan_id)
 {
+    // Proses daftar lowongan + upload CV
+    public function daftar (Request $request, $lowongan_id)
+    {
     $request->validate([
         'cv' => 'required|file|mimes:pdf|max:2048', // Max 2MB
     ]);
@@ -33,4 +33,5 @@ class PendaftaranController extends Controller
     
     return redirect()->route('mahasiswa.lamaran.index')
         ->with('success', 'Lamaran berhasil dikirim!');
+    }
 }

@@ -223,7 +223,7 @@
     <div class="container">
         @if(session('success'))
         <div class="alert-success">
-            <p>Destes&ion(success)</p>
+            <p>Login berhasil!</p>
             <div class="alert-success-box">
                 @if (session('success'))
                     @endif
@@ -277,9 +277,7 @@
             <a href="{{ route('admin.perusahaan.index') }}" class="menu-item">
                 <i class="fa-solid fa-circle-check"></i> Verifikasi Perusahaan
             </a>
-            <a href="{{ route('admin.lowongan.index') }}" class="menu-item">
-                <i class="fa-solid fa-circle-check"></i> Verifikasi Lowongan
-            </a>
+        
             <a href="{{ route('admin.lowongan.index') }}" class="menu-item">
                 <i class="fa-solid fa-circle-check"></i> Verifikasi Lowongan
             </a>
