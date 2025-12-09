@@ -224,7 +224,7 @@
         @endif
 
         <div class="welcome-card">
-            <h2>Selamat Datang, **{{ auth()->user()->perusahaan->nama_perusahaan }}**!</h2>
+            <h2>Selamat Datang, {{ auth()->user()->perusahaan->nama_perusahaan }}!</h2>
             <p>Kelola lowongan dan lihat pelamar dari sini.</p>
             
             @if(auth()->user()->perusahaan->status_verifikasi === 'menunggu')
