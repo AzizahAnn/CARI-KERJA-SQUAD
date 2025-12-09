@@ -195,7 +195,7 @@
             @else
             <div class="status-box status-ditolak">
                 <h4><i class="fa-solid fa-face-sad-tear"></i> Lamaran Tidak Diterima</h4>
-                <p>Jangan berkecil hati! Coba lamar ke lowongan lain yang sesuai.</p>
+                <p>Jangan berkecil hati! Coba lamar ke lowongan lain yang lebih sesuai.</p>
             </div>
             @endif
 

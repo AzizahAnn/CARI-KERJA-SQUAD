@@ -255,7 +255,7 @@
                 
                 <p class="card-info"><i class="fa-solid fa-map-marker-alt"></i> {{ $item->lokasi }}</p>
                 <p class="card-info"><i class="fa-solid fa-calendar-times"></i> Batas: {{ $item->batas_akhir->format('d M Y') }}</p>
-                <p class="card-info"><i class="fa-solid fa-users"></i> Pelamar: **{{ $item->pendaftaran->count() }}** orang</p>
+                <p class="card-info"><i class="fa-solid fa-users"></i> Pelamar: {{ $item->pendaftaran->count() }} orang</p>
                 
                 <div class="card-actions">
                     <a href="{{ route('perusahaan.lowongan.detail', $item->id) }}" class="btn btn-detail"><i class="fa-solid fa-file-alt"></i> Detail</a>
