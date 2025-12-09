@@ -232,7 +232,7 @@
         @endif
 
         <div class="welcome-card">
-            <h2>Selamat Datang, {{auth()->user()->}} <span class="greeting-icon">😀</span></h2>
+            <h2>Selamat Datang, Admin<span class="greeting-icon"></span></h2>
             <p>Own Your Career </p>
             <p>Kelola sistem Own Your Career dari sini</p>
             <div style="text-align: right; margin-top: 10px;">

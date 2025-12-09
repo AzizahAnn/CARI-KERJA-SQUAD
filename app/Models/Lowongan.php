@@ -44,7 +44,7 @@ class Lowongan extends Model
     /**
      * Query Scope: Mengambil lowongan yang statusnya 'aktif' dan belum kedaluwarsa.
      */
-    public function scopeAktif(Builder $query)
+    public function scopeAktif($query)
     {
         return $query->where('status', 'aktif')
                      ->where('batas_akhir', '>=', Carbon::today());
