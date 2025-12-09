@@ -212,7 +212,7 @@
     <nav class="navbar">
         <h1><i class="fa-solid fa-house-chimney"></i> Dashboard Admin</h1>
         <div class="user-info">
-            Sser info: //auth (ou user) name
+            <span class="username">{{auth()->user()->name}}</span>
             <form action="{{ route('admin.keluar') }}" method="POST" style="display: inline;">
                 @csrf
                 <button type="submit" class="logout-btn">Keluar</button>
@@ -232,9 +232,9 @@
         @endif
 
         <div class="welcome-card">
-            <h2>#2 Selamat Dadang, <span class="greeting-icon">😀</span></h2>
-            <p>( Own Your Career )</p>
-            <p>Kelola system Own Yolen darin seni</p>
+            <h2>Selamat Datang, {{auth()->user()->}} <span class="greeting-icon">😀</span></h2>
+            <p>Own Your Career </p>
+            <p>Kelola sistem Own Your Career dari sini</p>
             <div style="text-align: right; margin-top: 10px;">
                 <span style="display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%;"></span>
                 <span style="display: inline-block; width: 6px; height: 6px; background: #ccc; border-radius: 50%; margin-left: 4px;"></span>
@@ -251,12 +251,12 @@
 
         <div class="card-grid">
             <div class="stat-card">
-                <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div> 
+                <div class="icon"><i class="fa-solid fa-money-bill-wave"></i></div> 
                 <h3>{{ $totalPerusahaan }}</h3>
                 <p>Total Perusahaan</p>
             </div>
             <div class="stat-card">
-                <div class="icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h3>{{ $totalMahasiswa }}</h3>
                 <p>Total Mahasiswa</p>
             </div>
@@ -275,10 +275,10 @@
         <div class="menu-list">
             <h3>Menu Admin</h3>
             <a href="{{ route('admin.perusahaan.index') }}" class="menu-item">
-                <i class="fa-solid fa-circle-check"></i> Verifikasi Perusahaan.index
+                <i class="fa-solid fa-circle-check"></i> Verifikasi Perusahaan
             </a>
             <a href="{{ route('admin.lowongan.index') }}" class="menu-item">
-                <i class="fa-solid fa-circle-check"></i> Verifikasi Lowongan.index
+                <i class="fa-solid fa-circle-check"></i> Verifikasi Lowongan
             </a>
             <a href="{{ route('admin.lowongan.index') }}" class="menu-item">
                 <i class="fa-solid fa-circle-check"></i> Verifikasi Lowongan
@@ -286,7 +286,7 @@
             <a href="{{ route('admin.laporan.rekap') }}" class="menu-item">
                 <i class="fa-solid fa-file-lines"></i> Laporan Rekap Pendaftar
             </a>
-            <div style="height: 10px; background: #8FB3E2; width: 50%; border-radius: 4px; margin-top: 10px;"></div>
+            <div style="height: 10px; background: #8FB3E2; width: 100%; border-radius: 4px; margin-top: 10px;"></div>
         </div>
     </div>
 </body>

@@ -188,7 +188,7 @@
 
         <div class="card">
             <h2>{{ $lowongan->posisi }}</h2>
-            <p style="color: #606C7B; margin-bottom: 2rem;">Perusahaan: **{{ $lowongan->perusahaan->nama_perusahaan }}** | Total Pelamar: <strong>{{ $lowongan->pendaftaran->count() }}</strong> orang</p>
+            <p style="color: #606C7B; margin-bottom: 2rem;">Perusahaan: {{ $lowongan->perusahaan->nama_perusahaan }} | Total Pelamar: <strong>{{ $lowongan->pendaftaran->count() }}</strong> orang</p>
 
             @if($lowongan->pendaftaran->count() > 0)
             <table>

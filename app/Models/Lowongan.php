@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eqoulent\Builder;
 use Carbon\Carbon;
 
 class Lowongan extends Model
@@ -34,14 +35,27 @@ class Lowongan extends Model
         return $this->hasMany(Pendaftaran::class);
     }
 
-    public function scopeAktif($query)
+    public function getIsAktifAttribute()
+    {
+        // Membandingkan tanggal hari ini (now()) dengan batas_akhir yang di-cast Carbon.
+        return $this->status === 'aktif' && now()->lessThanOrEqualTo($this->batas_akhir);
+    }
+
+    /**
+     * Query Scope: Mengambil lowongan yang statusnya 'aktif' dan belum kedaluwarsa.
+     */
+    public function scopeAktif(Builder $query)
     {
         return $query->where('status', 'aktif')
                      ->where('batas_akhir', '>=', Carbon::today());
     }
 
+    /**
+     * Fungsi Helper: Memeriksa apakah lowongan masih terbuka.
+     * Menggunakan logika dari Accessor is_aktif.
+     */
     public function masihTerbuka()
     {
-        return $this->status === 'aktif' && $this->batas_akhir >= Carbon::today();
+        return $this->is_aktif;
     }
 }
