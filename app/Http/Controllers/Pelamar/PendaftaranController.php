@@ -20,13 +20,13 @@ class PendaftaranController extends Controller
     
     // Upload CV
     $file = $request->file('cv');
-    $namaFile = 'cv_' . $pelamar->nim . '_' . time() . '.pdf';
+    $namaFile = 'cv_' . $pelamar->no_identitas . '_' . time() . '.pdf';  // ✅ FIXED
     $jalurCV = $file->storeAs('cv', $namaFile, 'public');
     
     // Simpan pendaftaran
     Pendaftaran::create([
         'lowongan_id' => $lowongan_id,
-        'Pelamar_id' => $pelamar->id,
+        'pelamar_id' => $pelamar->id,  // ✅ FIXED
         'jalur_cv' => $jalurCV,
         'status' => 'menunggu',
     ]);
