@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pendaftaran;
 use App\Models\Lowongan;
 use App\Models\Perusahaan;
-use App\Models\Mahasiswa;
+use App\Models\Pelamar;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -14,7 +14,7 @@ class LaporanController extends Controller
     public function rekapPendaftar()
     {
         $totalPerusahaan = Perusahaan::count();
-        $totalMahasiswa = Mahasiswa::count();
+        $totalPelamar = Pelamar::count();
         $totalLowongan = Lowongan::count();
         $totalPendaftaran = Pendaftaran::count();
         
@@ -31,7 +31,7 @@ class LaporanController extends Controller
         
         return view('admin.laporan.rekap', compact(
             'totalPerusahaan',
-            'totalMahasiswa',
+            'totalPelamar',
             'totalLowongan',
             'totalPendaftaran',
             'lowonganDenganPelamar',

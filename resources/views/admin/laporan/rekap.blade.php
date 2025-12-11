@@ -146,8 +146,8 @@
             </div>
             <div class="stat-card">
                 <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3>{{ $totalMahasiswa }}</h3>
-                <p>Total Mahasiswa</p>
+                <h3>{{ $totalPelamar }}</h3>
+                <p>Total Pelamar</p>
             </div>
             <div class="stat-card">
                 <div class="icon"><i class="fa-solid fa-briefcase"></i></div>

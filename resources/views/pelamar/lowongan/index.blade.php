@@ -190,15 +190,15 @@
     <nav class="navbar">
         <h1><i class="fa-solid fa-magnifying-glass"></i> Cari Lowongan</h1>
         <div>
-            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
-            <a href="{{ route('mahasiswa.lowongan.index') }}"><i class="fa-solid fa-briefcase"></i> Cari Lowongan</a>
-            <a href="{{ route('mahasiswa.lamaran.index') }}"><i class="fa-solid fa-file-contract"></i> Lamaran Saya</a>
+            <a href="{{ route('pelamar.dashboard') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+            <a href="{{ route('pelamar.lowongan.index') }}"><i class="fa-solid fa-briefcase"></i> Cari Lowongan</a>
+            <a href="{{ route('pelamar.lamaran.index') }}"><i class="fa-solid fa-file-contract"></i> Lamaran Saya</a>
         </div>
     </nav>
 
     <div class="container">
         <div class="search-box">
-            <form action="{{ route('mahasiswa.lowongan.index') }}" method="GET" class="search-form">
+            <form action="{{ route('pelamar.lowongan.index') }}" method="GET" class="search-form">
                 <input type="text" name="cari" placeholder="Cari posisi, perusahaan, atau lokasi..." value="{{ request('cari') }}">
                 <select name="tipe">
                     <option value="">Semua Tipe</option>
@@ -226,7 +226,7 @@
                 <p class="card-info"><i class="fa-solid fa-calendar-times"></i> Batas: {{ $item->batas_akhir->format('d M Y') }}</p>
                 <p class="card-info"><i class="fa-solid fa-file-alt"></i> {{ Str::limit($item->deskripsi, 150) }}</p>
                 
-                <a href="{{ route('mahasiswa.lowongan.detail', $item->id) }}" class="btn-detail"><i class="fa-solid fa-eye"></i> Lihat Detail & Lamar</a>
+                <a href="{{ route('pelamar.lowongan.detail', $item->id) }}" class="btn-detail"><i class="fa-solid fa-eye"></i> Lihat Detail & Lamar</a>
             </div>
             @endforeach
         @else

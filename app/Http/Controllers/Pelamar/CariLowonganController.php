@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Pelamar;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lowongan;
@@ -29,7 +29,7 @@ class CariLowonganController extends Controller
         
         $lowongan = $query->orderBy('created_at', 'desc')->get();
         
-        return view('mahasiswa.lowongan.index', compact('lowongan'));
+        return view('pelamar.lowongan.index', compact('lowongan'));
     }
     
     // Tampilkan detail lowongan
@@ -37,13 +37,13 @@ class CariLowonganController extends Controller
     {
         $lowongan = Lowongan::with('perusahaan')->aktif()->findOrFail($id);
         
-        $mahasiswa = auth()->user()->mahasiswa;
+        $pelamar = auth()->user()->pelamar;
         
         // Cek apakah sudah daftar
         $sudahDaftar = $lowongan->pendaftaran()
-            ->where('mahasiswa_id', $mahasiswa->id)
+            ->where('pelamar_id', $pelamar->id)
             ->exists();
         
-        return view('mahasiswa.lowongan.detail', compact('lowongan', 'sudahDaftar'));
+        return view('pelamar.lowongan.detail', compact('lowongan', 'sudahDaftar'));
     }
 }

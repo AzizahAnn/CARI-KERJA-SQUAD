@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('password');
             
             // --- INI TAMBAHAN KITA ---
-            $table->enum('role', ['admin', 'mahasiswa', 'perusahaan']);
+            $table->enum('role', ['admin', 'pelamar', 'perusahaan']);
             $table->enum('status', ['pending', 'terverifikasi'])->default('pending');
             // --- END TAMBAHAN ---
             

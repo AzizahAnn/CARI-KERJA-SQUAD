@@ -15,7 +15,7 @@ class PelamarController extends Controller
     {
         $perusahaan = auth()->user()->perusahaan;
         
-        $lowongan = Lowongan::with(['pendaftaran.mahasiswa.user'])
+        $lowongan = Lowongan::with(['pendaftaran.pelamar.user'])
             ->where('id', $lowongan_id)
             ->where('perusahaan_id', $perusahaan->id)
             ->firstOrFail();
@@ -48,7 +48,7 @@ class PelamarController extends Controller
     // Download CV pelamar
     public function unduhCV($pendaftaran_id)
     {
-        $pendaftaran = Pendaftaran::with('lowongan.perusahaan', 'mahasiswa.user')
+        $pendaftaran = Pendaftaran::with('lowongan.perusahaan', 'pelamar.user')
             ->findOrFail($pendaftaran_id);
         
         // Cek kepemilikan
@@ -62,7 +62,7 @@ class PelamarController extends Controller
         }
         
         // Download dengan nama yang jelas
-        $namaFile = $pendaftaran->mahasiswa->nama_lengkap . '_CV.pdf';
+        $namaFile = $pendaftaran->pelamar->nama_lengkap . '_CV.pdf';
         
         return Storage::disk('public')->download($pendaftaran->jalur_cv, $namaFile);
     }

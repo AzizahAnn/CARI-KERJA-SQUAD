@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Mahasiswa - Own Your Career</title>
+    <title>Dashboard Pelamar - Own Your Career</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -171,10 +171,10 @@
 </head>
 <body>
     <nav class="navbar">
-        <h1><i class="fa-solid fa-gauge-high"></i> Dashboard Mahasiswa</h1>
+        <h1><i class="fa-solid fa-gauge-high"></i> Dashboard Pelamar</h1>
         <div class="user-info">
             <span>{{ auth()->user()->name }}</span>
-            <form action="{{ route('mahasiswa.keluar') }}" method="POST" style="display: inline;">
+            <form action="{{ route('pelamar.keluar') }}" method="POST" style="display: inline;">
                 @csrf
                 <button type="submit" class="logout-btn"><i class="fa-solid fa-sign-out-alt"></i> Keluar</button>
             </form>
@@ -189,12 +189,12 @@
         @endif
 
         <div class="welcome-card">
-            <h2>Selamat Datang, {{ auth()->user()->mahasiswa->nama_lengkap }}!</h2>
+            <h2>Selamat Datang, {{ auth()->user()->pelamar->nama_lengkap }}!</h2>
             <p>Temukan lowongan magang dan kerja impianmu</p>
             
             <div class="info-box">
-                <p><i class="fa-solid fa-id-card"></i> <strong>NIM:</strong> {{ auth()->user()->mahasiswa->nim }}</p>
-                <p><i class="fa-solid fa-graduation-cap"></i> <strong>Jurusan:</strong> {{ auth()->user()->mahasiswa->jurusan }}</p>
+                <p><i class="fa-solid fa-id-card"></i> <strong>NIM:</strong> {{ auth()->user()->Pelamar->nim }}</p>
+                <p><i class="fa-solid fa-graduation-cap"></i> <strong>Jurusan:</strong> {{ auth()->user()->Pelamar->jurusan }}</p>
             </div>
         </div>
 
@@ -223,8 +223,8 @@
     
     <div class="menu-list">
         <h3><i class="fa-solid fa-bars"></i> Menu Utama</h3>
-        <a href="{{ route('mahasiswa.lowongan.index') }}" class="menu-item"><i class="fa-solid fa-search"></i> Cari Lowongan</a>
-        <a href="{{ route('mahasiswa.lamaran.index') }}" class="menu-item"><i class="fa-solid fa-clipboard-list"></i> Riwayat Lamaran Saya</a>
+        <a href="{{ route('pelamar.lowongan.index') }}" class="menu-item"><i class="fa-solid fa-search"></i> Cari Lowongan</a>
+        <a href="{{ route('pelamar.lamaran.index') }}" class="menu-item"><i class="fa-solid fa-clipboard-list"></i> Riwayat Lamaran Saya</a>
     </div>
 
     </div>

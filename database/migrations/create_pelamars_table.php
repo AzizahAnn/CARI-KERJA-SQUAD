@@ -7,8 +7,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Ini adalah tabel PROFIL Mahasiswa
-        Schema::create('mahasiswas', function (Blueprint $table) {
+        // Ini adalah tabel PROFIL pelamar
+        Schema::create('pelamars', function (Blueprint $table) {
             $table->id();
             // Relasi 1-to-1 ke tabel 'users'
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
@@ -20,6 +20,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('mahasiswas');
+        Schema::dropIfExists('pelamars');
     }
 };

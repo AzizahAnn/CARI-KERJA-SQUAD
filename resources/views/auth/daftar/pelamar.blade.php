@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Mahasiswa - Own Your Career</title>
+    <title>Daftar Pelamar - Own Your Career</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -22,7 +22,7 @@
         }
         .register-container {
             background: white;
-            border-radius: 15px; /* Sedikit dikecilkan agar lebih modern */
+            border-radius: 15px;
             padding: 40px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             max-width: 600px;
@@ -33,26 +33,26 @@
             margin-bottom: 2rem;
         }
         .register-header .icon {
-            font-size: 3.5rem; /* Ukuran ikon disesuaikan */
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
-            color: #31487A; /* Warna ikon YinMn Blue */
+            color: #31487A;
         }
         .register-header h2 {
-            color: #192338; /* Oxford Blue */
+            color: #192338;
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
         .register-header p {
-            color: #606C7B; /* Warna abu-abu yang lebih tenang */
+            color: #606C7B;
         }
         .alert {
             padding: 12px 20px;
-            border-radius: 8px; /* Disesuaikan */
+            border-radius: 8px;
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
         .alert-error {
-            background: #fecaca; /* Warna error merah baru */
+            background: #fecaca;
             color: #b91c1c;
             border-left: 4px solid #ef4444;
         }
@@ -61,7 +61,7 @@
         }
         label {
             display: block;
-            color: #192338; /* Warna label lebih gelap */
+            color: #192338;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -76,7 +76,7 @@
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #e5e7eb;
-            border-radius: 8px; /* Disesuaikan */
+            border-radius: 8px;
             font-size: 1rem;
             font-family: inherit;
             transition: all 0.3s ease;
@@ -88,8 +88,8 @@
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: #8FB3E2; /* Jordy Blue untuk fokus */
-            box-shadow: 0 0 0 3px rgba(143, 179, 226, 0.4); /* Shadow biru transparan */
+            border-color: #8FB3E2;
+            box-shadow: 0 0 0 3px rgba(143, 179, 226, 0.4);
         }
         .error-text {
             color: #ef4444;
@@ -99,11 +99,10 @@
         .btn {
             width: 100%;
             padding: 14px;
-            /* Gradien tombol menggunakan warna palet biru */
             background: linear-gradient(135deg, #8FB3E2 0%, #31487A 100%);
             color: white;
             border: none;
-            border-radius: 8px; /* Disesuaikan */
+            border-radius: 8px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
@@ -112,7 +111,7 @@
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(49, 72, 122, 0.3); /* Shadow dari YinMn Blue */
+            box-shadow: 0 5px 20px rgba(49, 72, 122, 0.3);
             opacity: 0.9;
         }
         .links {
@@ -120,7 +119,7 @@
             margin-top: 1.5rem;
         }
         .links p, .links a {
-            color: #31487A; /* Warna link YinMn Blue */
+            color: #31487A;
             text-decoration: none;
             font-weight: 500;
         }
@@ -142,9 +141,9 @@
 <body>
     <div class="register-container">
         <div class="register-header">
-            <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
-            <h2>Daftar Mahasiswa</h2>
-            <p>Mulai perjalanan kariermu</p>
+            <div class="icon"><i class="fa-solid fa-user-tie"></i></div>
+            <h2>Daftar Pelamar</h2>
+            <p>Mulai perjalanan kariermu bersama kami</p>
         </div>
 
         @if(session('error'))
@@ -153,7 +152,7 @@
         </div>
         @endif
 
-        <form action="{{ route('mahasiswa.daftar') }}" method="POST">
+        <form action="{{ route('pelamar.daftar') }}" method="POST">
             @csrf
             
             <div class="form-group">
@@ -166,17 +165,17 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="nim">NIM <span>*</span></label>
-                    <input type="text" name="nim" id="nim" value="{{ old('nim') }}" required>
-                    @error('nim')
+                    <label for="no_identitas">No. Identitas <span>*</span></label>
+                    <input type="text" name="no_identitas" id="no_identitas" value="{{ old('no_identitas') }}" placeholder="KTP/SIM/dll" required>
+                    @error('no_identitas')
                     <div class="error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="jurusan">Jurusan <span>*</span></label>
-                    <input type="text" name="jurusan" id="jurusan" value="{{ old('jurusan') }}" required>
-                    @error('jurusan')
+                    <label for="bidang_keahlian">Bidang Keahlian <span>*</span></label>
+                    <input type="text" name="bidang_keahlian" id="bidang_keahlian" value="{{ old('bidang_keahlian') }}" placeholder="Cth: IT, Desain, dll" required>
+                    @error('bidang_keahlian')
                     <div class="error-text">{{ $message }}</div>
                     @enderror
                 </div>
@@ -225,7 +224,7 @@
         </form>
 
         <div class="links">
-            <p>Sudah punya akun? <a href="{{ route('mahasiswa.masuk') }}">Masuk di sini</a></p>
+            <p>Sudah punya akun? <a href="{{ route('pelamar.masuk') }}">Masuk di sini</a></p>
             <a href="{{ route('pilih.peran') }}"><i class="fa-solid fa-arrow-left"></i> Kembali ke Pilih Peran</a>
         </div>
     </div>

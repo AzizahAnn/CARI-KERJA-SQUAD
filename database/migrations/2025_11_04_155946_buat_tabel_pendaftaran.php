@@ -11,13 +11,13 @@ return new class extends Migration
         Schema::create('pendaftaran', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lowongan_id')->constrained('lowongan')->onDelete('cascade');
-            $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade');
+            $table->foreignId('pelamar_id')->constrained('pelamar')->onDelete('cascade');
             $table->string('jalur_cv');
             $table->enum('status', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
             $table->timestamp('tanggal_daftar')->useCurrent();
             $table->timestamps();
             
-            $table->unique(['lowongan_id', 'mahasiswa_id']);
+            $table->unique(['lowongan_id', 'pelamar_id']);
         });
     }
 

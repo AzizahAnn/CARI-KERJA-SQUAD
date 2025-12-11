@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\Auth\DaftarController;
 use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\Auth\LoginPerusahaanController;
-use App\Http\Controllers\Auth\LoginMahasiswaController;
+use App\Http\Controllers\Auth\LoginPelamarController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\VerifikasiPerusahaanController;
 use App\Http\Controllers\Admin\VerifikasiLowonganController;
@@ -12,17 +13,17 @@ use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Perusahaan\DashboardPerusahaanController;
 use App\Http\Controllers\Perusahaan\LowonganController;
 use App\Http\Controllers\Perusahaan\PelamarController;
-use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
-use App\Http\Controllers\Mahasiswa\CariLowonganController;
-use App\Http\Controllers\Mahasiswa\PendaftaranController;
-use App\Http\Controllers\Mahasiswa\LamaranController;
+use App\Http\Controllers\Pelamar\DashboardPelamarController;
+use App\Http\Controllers\Pelamar\CariLowonganController;
+use App\Http\Controllers\Pelamar\PendaftaranController;
+use App\Http\Controllers\Pelamar\LamaranController;
 
 // ========================================
-// HALAMAN UTAMA
+// HALAMAN UTAMA (PUBLIC - TANPA LOGIN)
 // ========================================
-Route::get('/', function () {
-    return view('beranda');
-})->name('beranda');
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/lowongan', [BerandaController::class, 'semuaLowongan'])->name('lowongan.publik');
+Route::get('/lowongan/{id}', [BerandaController::class, 'detailLowongan'])->name('lowongan.publik.detail');
 
 Route::get('/masuk', function () {
     return view('auth.pilih-peran');
@@ -85,17 +86,17 @@ Route::prefix('perusahaan')->name('perusahaan.')->group(function () {
 });
 
 // ========================================
-// ROUTES MAHASISWA
+// ROUTES PELAMAR
 // ========================================
-Route::prefix('mahasiswa')->name('mahasiswa.')->group(function () {
-    Route::get('/masuk', [LoginMahasiswaController::class, 'tampilkanFormMasuk'])->name('masuk');
-    Route::post('/masuk', [LoginMahasiswaController::class, 'masuk']);
-    Route::get('/daftar', [DaftarController::class, 'tampilkanFormMahasiswa'])->name('daftar');
-    Route::post('/daftar', [DaftarController::class, 'daftarMahasiswa']);
-    Route::post('/keluar', [LoginMahasiswaController::class, 'keluar'])->name('keluar');
+Route::prefix('pelamar')->name('pelamar.')->group(function () {
+    Route::get('/masuk', [LoginPelamarController::class, 'tampilkanFormMasuk'])->name('masuk');
+    Route::post('/masuk', [LoginPelamarController::class, 'masuk']);
+    Route::get('/daftar', [DaftarController::class, 'tampilkanFormPelamar'])->name('daftar');
+    Route::post('/daftar', [DaftarController::class, 'daftarPelamar']);
+    Route::post('/keluar', [LoginPelamarController::class, 'keluar'])->name('keluar');
     
-    Route::middleware(['auth', 'mahasiswa'])->group(function () {
-        Route::get('/dashboard', [DashboardMahasiswaController::class, 'index'])->name('dashboard');
+    Route::middleware(['auth', 'pelamar'])->group(function () {
+        Route::get('/dashboard', [DashboardPelamarController::class, 'index'])->name('dashboard');
         
         // Cari & Lihat Lowongan
         Route::get('/lowongan', [CariLowonganController::class, 'index'])->name('lowongan.index');

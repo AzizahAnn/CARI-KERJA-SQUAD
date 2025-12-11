@@ -224,7 +224,7 @@
     </nav>
 
     <div class="container">
-        <a href="{{ route('mahasiswa.lowongan.index') }}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Lowongan</a>
+        <a href="{{ route('pelamar.lowongan.index') }}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Lowongan</a>
 
         @if(session('success'))
         <div class="alert alert-success"><i class="fa-solid fa-check-circle"></i> {{ session('success') }}</div>
@@ -236,7 +236,7 @@
 
         @if($sudahDaftar)
         <div class="alert alert-info">
-            <i class="fa-solid fa-info-circle"></i> Anda sudah mendaftar di lowongan ini. Cek status di <a href="{{ route('mahasiswa.lamaran.index') }}">Riwayat Lamaran</a>
+            <i class="fa-solid fa-info-circle"></i> Anda sudah mendaftar di lowongan ini. Cek status di <a href="{{ route('pelamar.lamaran.index') }}">Riwayat Lamaran</a>
         </div>
         @endif
 
@@ -277,7 +277,7 @@
                 <h3><i class="fa-solid fa-cloud-upload-alt"></i> Upload CV dan Lamar Sekarang</h3>
                 <p>File CV harus berformat PDF dengan ukuran maksimal 2MB</p>
                 
-                <form action="{{ route('mahasiswa.lowongan.daftar', $lowongan->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('pelamar.lowongan.daftar', $lowongan->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="file-input">

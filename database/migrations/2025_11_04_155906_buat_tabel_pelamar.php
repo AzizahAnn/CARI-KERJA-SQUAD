@@ -8,12 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('mahasiswa', function (Blueprint $table) {
+        Schema::create('pelamar', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('nim', 20)->unique();
+            $table->string('no_identitas', 20)->unique();
             $table->string('nama_lengkap');
-            $table->string('jurusan');
+            $table->string('bidang_keahlian');
             $table->string('no_telp', 20);
             $table->text('alamat')->nullable();
             $table->timestamps();
@@ -22,6 +22,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('mahasiswa');
+        Schema::dropIfExists('pelamar');
     }
 };

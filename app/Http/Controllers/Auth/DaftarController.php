@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Perusahaan;
-use App\Models\Mahasiswa;
+use App\Models\Pelamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -76,21 +76,21 @@ class DaftarController extends Controller
         }
     }
     
-    // ===== MAHASISWA =====
+    // ===== PELAMAR =====
     
-    public function tampilkanFormMahasiswa()
+    public function tampilkanFormPelamar()
     {
-        return view('auth.daftar.mahasiswa');
+        return view('auth.daftar.pelamar');
     }
     
-    public function daftarMahasiswa(Request $request)
+    public function daftarPelamar(Request $request)
     {
         $request->validate([
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
-            'nim' => 'required|string|max:20|unique:mahasiswa,nim',
+            'no_identitas' => 'required|string|max:20|unique:pelamar,no_identitas',
             'nama_lengkap' => 'required|string|max:255',
-            'jurusan' => 'required|string|max:255',
+            'bidang_keahlian' => 'required|string|max:255',
             'no_telp' => 'required|string|max:20',
             'alamat' => 'nullable|string',
         ], [
@@ -99,10 +99,10 @@ class DaftarController extends Controller
             'password.required' => 'Password wajib diisi',
             'password.min' => 'Password minimal 8 karakter',
             'password.confirmed' => 'Konfirmasi password tidak cocok',
-            'nim.required' => 'NIM wajib diisi',
-            'nim.unique' => 'NIM sudah terdaftar',
+            'no_identitas.required' => 'Nomor identitas wajib diisi',
+            'no_identitas.unique' => 'Nomor identitas sudah terdaftar',
             'nama_lengkap.required' => 'Nama lengkap wajib diisi',
-            'jurusan.required' => 'Jurusan wajib diisi',
+            'bidang_keahlian.required' => 'Bidang keahlian wajib diisi',
             'no_telp.required' => 'Nomor telepon wajib diisi',
         ]);
         
@@ -112,21 +112,21 @@ class DaftarController extends Controller
                 'name' => $request->nama_lengkap,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'peran' => 'mahasiswa',
+                'peran' => 'pelamar',
             ]);
             
-            Mahasiswa::create([
+            Pelamar::create([
                 'user_id' => $user->id,
-                'nim' => $request->nim,
+                'no_identitas' => $request->no_identitas,
                 'nama_lengkap' => $request->nama_lengkap,
-                'jurusan' => $request->jurusan,
+                'bidang_keahlian' => $request->bidang_keahlian,
                 'no_telp' => $request->no_telp,
                 'alamat' => $request->alamat,
             ]);
             
             DB::commit();
             
-            return redirect()->route('mahasiswa.masuk')
+            return redirect()->route('pelamar.masuk')
                 ->with('success', 'Pendaftaran berhasil! Silakan masuk.');
                 
         } catch (\Exception $e) {

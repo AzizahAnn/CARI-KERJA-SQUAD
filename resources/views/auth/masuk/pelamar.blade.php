@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Mahasiswa - Own Your Career</title>
+    <title>Login Pelamar - Own Your Career</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -150,7 +150,7 @@
     <div class="login-container">
         <div class="login-header">
             <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
-            <h2>Login Mahasiswa</h2>
+            <h2>Login Pelamar</h2>
             <p>Cari lowongan impianmu</p>
         </div>
 
@@ -166,7 +166,7 @@
         </div>
         @endif
 
-        <form action="{{ route('mahasiswa.masuk') }}" method="POST">
+        <form action="{{ route('pelamar.masuk') }}" method="POST">
             @csrf
             
             <div class="form-group">
@@ -194,7 +194,7 @@
         </form>
 
         <div class="links">
-            <a href="{{ route('mahasiswa.daftar') }}"><strong>Belum punya akun? Daftar di sini</strong></a>
+            <a href="{{ route('pelamar.daftar') }}"><strong>Belum punya akun? Daftar di sini</strong></a>
             <a href="{{ route('pilih.peran') }}"><i class="fa-solid fa-arrow-left"></i> Kembali ke Pilih Peran</a>
         </div>
     </div>

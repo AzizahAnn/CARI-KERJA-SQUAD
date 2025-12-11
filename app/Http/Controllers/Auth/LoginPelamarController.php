@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginMahasiswaController extends Controller
+class LoginPelamarController extends Controller
 {
     public function tampilkanFormMasuk()
     {
-        if (auth()->check() && auth()->user()->adalahMahasiswa()) {
-            return redirect()->route('mahasiswa.dashboard');
+        if (auth()->check() && auth()->user()->adalahPelamar()) {
+            return redirect()->route('pelamar.dashboard');
         }
         
-        return view('auth.masuk.mahasiswa');
+        return view('auth.masuk.pelamar');
     }
     
     public function masuk(Request $request)
@@ -27,10 +27,10 @@ class LoginMahasiswaController extends Controller
             'password.required' => 'Password wajib diisi',
         ]);
         
-        if (Auth::attempt(array_merge($kredensial, ['peran' => 'mahasiswa']), $request->filled('ingat_saya'))) {
+        if (Auth::attempt(array_merge($kredensial, ['peran' => 'pelamar']), $request->filled('ingat_saya'))) {
             $request->session()->regenerate();
             
-            return redirect()->route('mahasiswa.dashboard')
+            return redirect()->route('pelamar.dashboard')
                 ->with('success', 'Selamat datang, ' . auth()->user()->name);
         }
         

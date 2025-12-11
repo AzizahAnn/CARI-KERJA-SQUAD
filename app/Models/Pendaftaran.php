@@ -10,7 +10,7 @@ class Pendaftaran extends Model
 
     protected $fillable = [
         'lowongan_id',
-        'mahasiswa_id',
+        'pelamar_id',
         'jalur_cv',
         'status',
         'tanggal_daftar',
@@ -25,8 +25,8 @@ class Pendaftaran extends Model
         return $this->belongsTo(Lowongan::class);
     }
 
-    public function mahasiswa()
+    public function pelamar()
     {
-        return $this->belongsTo(Mahasiswa::class);
+        return $this->belongsTo(Pelamar::class);
     }
 }

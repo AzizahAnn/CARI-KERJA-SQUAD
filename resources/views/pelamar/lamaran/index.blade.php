@@ -168,9 +168,9 @@
     <nav class="navbar">
         <h1><i class="fa-solid fa-list-check"></i> Riwayat Lamaran</h1>
         <div>
-            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
-            <a href="{{ route('mahasiswa.lowongan.index') }}"><i class="fa-solid fa-magnifying-glass"></i> Cari Lowongan</a>
-            <a href="{{ route('mahasiswa.lamaran.index') }}"><i class="fa-solid fa-file-contract"></i> Lamaran Saya</a>
+            <a href="{{ route('pelamar.dashboard') }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+            <a href="{{ route('pelamar.lowongan.index') }}"><i class="fa-solid fa-magnifying-glass"></i> Cari Lowongan</a>
+            <a href="{{ route('pelamar.lamaran.index') }}"><i class="fa-solid fa-file-contract"></i> Lamaran Saya</a>
         </div>
     </nav>
 
@@ -201,13 +201,13 @@
                 <p class="card-info"><i class="fa-solid fa-calendar-alt"></i> Dilamar: {{ $item->tanggal_daftar->format('d M Y H:i') }}</p>
                 <p class="card-info"><i class="fa-solid fa-file-pdf"></i> CV: {{ basename($item->jalur_cv) }}</p>
                 
-                <a href="{{ route('mahasiswa.lamaran.detail', $item->id) }}" class="btn-detail"><i class="fa-solid fa-eye"></i> Lihat Detail</a>
+                <a href="{{ route('pelamar.lamaran.detail', $item->id) }}" class="btn-detail"><i class="fa-solid fa-eye"></i> Lihat Detail</a>
             </div>
             @endforeach
         @else
             <div class="empty-state">
                 <h3><i class="fa-solid fa-box-open"></i> Belum ada lamaran</h3>
-                <p><a href="{{ route('mahasiswa.lowongan.index') }}">Cari lowongan</a> dan kirim lamaran pertama Anda</p>
+                <p><a href="{{ route('pelamar.lowongan.index') }}">Cari lowongan</a> dan kirim lamaran pertama Anda</p>
             </div>
         @endif
     </div>

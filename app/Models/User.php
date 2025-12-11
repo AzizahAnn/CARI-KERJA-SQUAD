@@ -32,9 +32,9 @@ class User extends Authenticatable
         return $this->hasOne(Perusahaan::class);
     }
 
-    public function mahasiswa()
+    public function pelamar()
     {
-        return $this->hasOne(Mahasiswa::class);
+        return $this->hasOne(Pelamar::class);
     }
 
     // Helper method
@@ -48,8 +48,8 @@ class User extends Authenticatable
         return $this->peran === 'perusahaan';
     }
 
-    public function adalahMahasiswa()
+    public function adalahPelamar()
     {
-        return $this->peran === 'mahasiswa';
+        return $this->peran === 'pelamar';
     }
 }

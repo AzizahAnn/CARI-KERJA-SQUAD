@@ -166,7 +166,7 @@
     </nav>
 
     <div class="container">
-        <a href="{{ route('mahasiswa.lamaran.index') }}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+        <a href="{{ route('pelamar.lamaran.index') }}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
 
         <div class="card">
             <div class="header">

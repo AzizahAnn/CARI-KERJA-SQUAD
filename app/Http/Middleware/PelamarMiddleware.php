@@ -5,18 +5,18 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class MahasiswaMiddleware
+class PelamarMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
         if (!auth()->check()) {
-            return redirect()->route('mahasiswa.masuk')
+            return redirect()->route('pelamar.masuk')
                 ->with('error', 'Silakan login terlebih dahulu.');
         }
         
-        if (!auth()->user()->adalahMahasiswa()) {
+        if (!auth()->user()->adalahPelamar()) {
             return redirect()->route('pilih.peran')
-                ->with('error', 'Halaman ini hanya untuk mahasiswa.');
+                ->with('error', 'Halaman ini hanya untuk pelamar.');
         }
         
         return $next($request);

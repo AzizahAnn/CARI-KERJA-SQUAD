@@ -195,7 +195,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Mahasiswa</th>
+                        <th>Nama Pelamar</th>
                         <th>NIM</th>
                         <th>Jurusan</th>
                         <th>Tanggal Lamar</th>
@@ -207,9 +207,9 @@
                     @foreach($lowongan->pendaftaran as $index => $item)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td><i class="fa-solid fa-user-graduate"></i> {{ $item->mahasiswa->nama_lengkap }}</td>
-                        <td>{{ $item->mahasiswa->nim }}</td>
-                        <td>{{ $item->mahasiswa->jurusan }}</td>
+                        <td><i class="fa-solid fa-user-graduate"></i> {{ $item->Pelamar->nama_lengkap }}</td>
+                        <td>{{ $item->pelamar->nim }}</td>
+                        <td>{{ $item->pelamar->jurusan }}</td>
                         <td><i class="fa-solid fa-calendar-check"></i> {{ $item->tanggal_daftar->format('d M Y H:i') }}</td>
                         <td>
                             <span class="badge badge-{{ $item->status }}">
@@ -242,7 +242,7 @@
             @else
             <div class="empty-state">
                 <h3><i class="fa-solid fa-box-open"></i> Belum ada pelamar</h3>
-                <p>Lowongan ini belum menerima lamaran dari mahasiswa.</p>
+                <p>Lowongan ini belum menerima lamaran dari pelamar.</p>
             </div>
             @endif
         </div>

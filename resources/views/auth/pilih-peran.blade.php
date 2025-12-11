@@ -94,8 +94,8 @@
         .perusahaan { border-bottom-color: #8FB3E2; } /* Jordy Blue */
         .perusahaan-link { color: #31487A !important; font-weight: 600; } 
 
-        .mahasiswa { border-bottom-color: #8FB3E2; } /* Jordy Blue */
-        .mahasiswa-link { color: #31487A !important; font-weight: 600; } 
+        .pelamar { border-bottom-color: #8FB3E2; } /* Jordy Blue */
+        .pelamar-link { color: #31487A !important; font-weight: 600; } 
         
         .card a.link-daftar {
             text-decoration: none;
@@ -153,13 +153,13 @@
                 <a href="{{ route('perusahaan.daftar') }}" class="link-daftar perusahaan-link">Belum punya akun? Daftar</a>
             </div>
             
-            <div class="card mahasiswa">
+            <div class="card pelamar">
                 <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                <h2>Mahasiswa</h2>
+                <h2>Pelamar</h2>
                 <p>Cari lowongan dan kirim lamaran</p>
-                <a href="{{ route('mahasiswa.masuk') }}" class="btn">Masuk Mahasiswa</a>
+                <a href="{{ route('pelamar.masuk') }}" class="btn">Masuk Pelamar</a>
                 <br>
-                <a href="{{ route('mahasiswa.daftar') }}" class="link-daftar mahasiswa-link">Belum punya akun? Daftar</a>
+                <a href="{{ route('pelamar.daftar') }}" class="link-daftar Pelamar-link">Belum punya akun? Daftar</a>
             </div>
         </div>
         
