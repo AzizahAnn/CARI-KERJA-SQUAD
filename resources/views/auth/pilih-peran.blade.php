@@ -159,7 +159,7 @@
                 <p>Cari lowongan dan kirim lamaran</p>
                 <a href="{{ route('pelamar.masuk') }}" class="btn">Masuk Pelamar</a>
                 <br>
-                <a href="{{ route('pelamar.daftar') }}" class="link-daftar Pelamar-link">Belum punya akun? Daftar</a>
+                <a href="{{ route('pelamar.daftar') }}" class="link-daftar pelamar-link">Belum punya akun? Daftar</a>
             </div>
         </div>
         
