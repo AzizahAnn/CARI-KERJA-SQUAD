@@ -191,7 +191,7 @@
                     </div>
                     <span class="badge badge-{{ $item->status }}">
                         @if($item->status == 'menunggu') <i class="fa-solid fa-clock"></i> Menunggu
-                        @elseif($item->status == 'diterima') <i class="fa-solid fa-check-circle"></i> Diterima
+                        @elseif($item->status == 'diterima') <i class="fa-solid fa-check-circle"></i> Berkas Diterima
                         @else <i class="fa-solid fa-times-circle"></i> Ditolak
                         @endif
                     </span>

@@ -193,8 +193,8 @@
             <p>Temukan lowongan magang dan kerja impianmu</p>
             
             <div class="info-box">
-                <p><i class="fa-solid fa-id-card"></i> <strong>NIM:</strong> {{ auth()->user()->Pelamar->nim }}</p>
-                <p><i class="fa-solid fa-graduation-cap"></i> <strong>Jurusan:</strong> {{ auth()->user()->Pelamar->jurusan }}</p>
+                <p><i class="fa-solid fa-id-card"></i> <strong>No. Identitas:</strong> {{ auth()->user()->Pelamar->no_identitas }}</p>
+                <p><i class="fa-solid fa-graduation-cap"></i> <strong>Bidang Keahlian:</strong> {{ auth()->user()->Pelamar->bidang_keahlian }}</p>
             </div>
         </div>
 

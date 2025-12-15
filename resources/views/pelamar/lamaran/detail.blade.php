@@ -176,7 +176,7 @@
                 </div>
                 <span class="badge badge-{{ $lamaran->status }}">
                     @if($lamaran->status == 'menunggu') <i class="fa-solid fa-clock"></i> Menunggu
-                    @elseif($lamaran->status == 'diterima') <i class="fa-solid fa-check-circle"></i> Diterima
+                    @elseif($lamaran->status == 'diterima') <i class="fa-solid fa-check-circle"></i> Berkas Diterima
                     @else <i class="fa-solid fa-times-circle"></i> Ditolak
                     @endif
                 </span>
@@ -189,8 +189,10 @@
             </div>
             @elseif($lamaran->status == 'diterima')
             <div class="status-box status-diterima">
-                <h4><i class="fa-solid fa-handshake-alt"></i> Selamat! Lamaran Anda Diterima</h4>
-                <p>Perusahaan akan menghubungi Anda untuk tahap selanjutnya.</p>
+                <h4><i class="fa-solid fa-handshake-alt"></i> Selamat! Berkas Anda Diterima</h4>
+                <p>Perusahaan akan menghubungi Anda untuk tahap selanjutnya. Jika ada pertanyaan lebih lanjut silahkan menghubungi email berikut:<a href="mailto:{{ $lamaran->lowongan->perusahaan->user->email }}">
+                    {{ $lamaran->lowongan->perusahaan->user->email }}.</a>
+                    <p>
             </div>
             @else
             <div class="status-box status-ditolak">
