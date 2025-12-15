@@ -184,6 +184,15 @@
         @media (max-width: 768px) {
             .search-form { grid-template-columns: 1fr; }
         }
+
+        /* Footer */
+        .footer {
+            background: #192338;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -235,6 +244,11 @@
                 <p>Coba ubah kata kunci pencarian atau filter Anda.</p>
             </div>
         @endif
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>

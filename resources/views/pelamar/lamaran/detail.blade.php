@@ -158,6 +158,15 @@
         .status-menunggu h4, .status-menunggu p { color: #31487A; }
         .status-diterima h4, .status-diterima p { color: #065f46; }
         .status-ditolak h4, .status-ditolak p { color: #991b1b; }
+
+        /* Footer */
+        .footer {
+            background: #192338;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -230,6 +239,11 @@
                 <p>{{ $lamaran->lowongan->persyaratan }}</p>
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>

@@ -167,6 +167,15 @@
             margin-bottom: 20px;
             border-left: 4px solid #10b981;
         }
+
+        /* Footer */
+        .footer {
+            background: #192338;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -227,6 +236,11 @@
         <a href="{{ route('pelamar.lamaran.index') }}" class="menu-item"><i class="fa-solid fa-clipboard-list"></i> Riwayat Lamaran Saya</a>
     </div>
 
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>

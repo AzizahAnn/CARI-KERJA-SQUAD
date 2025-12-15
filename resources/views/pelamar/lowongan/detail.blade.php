@@ -216,6 +216,15 @@
         .back-link i {
             margin-right: 5px;
         }
+
+        /* Footer */
+        .footer {
+            background: #192338;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -302,6 +311,11 @@
             });
         </script>
         @endif
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>

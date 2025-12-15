@@ -61,25 +61,6 @@
             color: #8FB3E2;
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            background: white;
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .breadcrumb a {
-            color: #31487A;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
         /* Main Container */
         .container {
             max-width: 1200px;
@@ -397,13 +378,6 @@
         </div>
     </div>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="{{ route('beranda') }}">Beranda</a> /
-        <a href="{{ route('lowongan.publik') }}">Lowongan</a> /
-        <span>{{ $lowongan->posisi }}</span>
-    </div>
-
     <!-- Main Content -->
     <div class="container">
         <div class="main-content">
@@ -417,7 +391,7 @@
                     <h1>{{ $lowongan->posisi }}</h1>
                     <div class="perusahaan">
                         <i class="fa-solid fa-building"></i>
-                        {{ $lowongan->perusahaan->nama ?? 'Perusahaan' }}
+                        {{ $lowongan->perusahaan->nama_perusahaan }}
                     </div>
                     <div class="info-mini">
                         <span>
@@ -509,7 +483,7 @@
             <!-- Company Card -->
             <div class="sidebar-card company-card">
                 <div class="company-name">
-                    {{ $lowongan->perusahaan->nama ?? 'Perusahaan' }}
+                    {{ $lowongan->perusahaan->nama_perusahaan }}
                 </div>
                 <div class="company-info">
                     <span>
@@ -524,7 +498,7 @@
                     </span>
                     <span>
                         <i class="fa-solid fa-phone"></i>
-                        {{ $lowongan->perusahaan->no_telepon ?? '-' }}
+                        {{ $lowongan->perusahaan->no_telp }}
                     </span>
                 </div>
             </div>
@@ -552,7 +526,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2024 Own Your Career. Semua Hak Dilindungi.</p>
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 
     <script>

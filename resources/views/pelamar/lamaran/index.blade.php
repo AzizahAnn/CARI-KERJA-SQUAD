@@ -162,6 +162,15 @@
         .empty-state a:hover {
             text-decoration: underline;
         }
+
+        /* Footer */
+        .footer {
+            background: #192338;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -210,6 +219,11 @@
                 <p><a href="{{ route('pelamar.lowongan.index') }}">Cari lowongan</a> dan kirim lamaran pertama Anda</p>
             </div>
         @endif
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>

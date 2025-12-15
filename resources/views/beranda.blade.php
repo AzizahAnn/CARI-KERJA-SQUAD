@@ -324,7 +324,8 @@
         .footer {
             background: #192338;
             color: white;
-            padding: 40px 20px;
+            text-align: center;
+            padding: 30px 20px;
             margin-top: 60px;
         }
 
@@ -499,5 +500,18 @@
             </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
+    </div>
+
+    <script>
+        function shareWhatsApp() {
+            const url = window.location.href;
+            const text = `Lihat lowongan "${$lowongan->posisi}" di ${$lowongan->perusahaan->nama ?? 'perusahaan'}: ${url}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+    </script>    
 </body>
 </html>

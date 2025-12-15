@@ -432,7 +432,7 @@
                                 <h3>{{ $item->posisi }}</h3>
                                 <div class="perusahaan">
                                     <i class="fa-solid fa-building"></i>
-                                    {{ $item->perusahaan->nama ?? 'Perusahaan' }}
+                                    {{ $item->perusahaan->nama_perusahaan }}
                                 </div>
                             </div>
                             <span class="badge badge-{{ $item->tipe }}">
@@ -480,7 +480,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2024 Own Your Career. Semua Hak Dilindungi.</p>
+        <p>&copy; 2025 Own Your Career. Semua Hak Dilindungi.</p>
     </div>
 </body>
 </html>
